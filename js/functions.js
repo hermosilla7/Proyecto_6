@@ -19,7 +19,7 @@ loadDoc("q="+n,"ajax_busq.php",function(){
     document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
     document.getElementById("myDiv").style.border="1px solid #A5ACB2";
 
-    }else{ document.getElementById("myDiv").innerHTML='<img src="load.gif" width="50" height="50" />'; }
+    }else{ document.getElementById("myDiv").innerHTML='<img src="img/load.gif" width="50" height="50" />'; }
 
   });
 }
@@ -43,7 +43,7 @@ loadDoc("vcod="+cod,"ajax_result.php",function(){
     	$(this).removeClass("big").addClass("small");
     });
     
-    }else{ document.getElementById("pers").innerHTML='<img src="load.gif" width="50" height="50" />'; }
+    }else{ document.getElementById("pers").innerHTML='<img src="img/load.gif" width="50" height="50" />'; }
 
   });
 }

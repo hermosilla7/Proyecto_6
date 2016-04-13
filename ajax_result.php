@@ -11,7 +11,7 @@
 <?php
 
 include 'conexion.proc.php';
-include_once 'qr/QrCode.php';
+include_once 'qr/src/QrCode.php';
 include_once 'qr/Exceptions/QrCode.php';
 include_once 'qr/Exceptions/.php';
 include_once 'qr/Exceptions/.php';//incluir todos los de la carpeta exception
@@ -45,9 +45,9 @@ echo "<div class='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
                     $foto = $cliente['img']; 
                     echo "<div id='img'><img src='$fichero' class='small' id='myImg'></div></div></br>";
 
-                    $qrCode = new Endroid\QrCode\QrCode();
-        $qrData = $qrCode
-            ->setText('prueba')//url insert con id concatenado
+            $qrCode = new Endroid\QrCode\QrCode();
+            $qrData = $qrCode
+            ->setText('http://www.marca.com')//url insert con id concatenado
             ->setSize(300)
             ->setPadding(10)
             ->setErrorCorrection('high')
@@ -55,7 +55,7 @@ echo "<div class='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
             ->setBackgroundColor(['r' => 255, 'g' => 255, 'b' => 255, 'a' => 0])
             ->setLabelFontSize(16)
             ->getDataUri();
-            echo $qrCode->getText();
+            // echo $qrCode->getText();
 
             echo('<img src='.$qrData.'>');
 ?>

@@ -6,11 +6,11 @@
 <!-- FONT AWESOME -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <!-- Crunchify's Scroll to Top Script -->
-        <link rel="stylesheet" type="text/css" href="ejemplo_css.css">
+        <link rel="stylesheet" type="text/css" href="css/small_big.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
         </script>
 
-<link rel="stylesheet" type="text/css" href="estilos.css">
+<link rel="stylesheet" type="text/css" href="css/search_bar.css">
 
 <script src="js/ajax.js"></script>
 <script src="js/functions.js"></script>
