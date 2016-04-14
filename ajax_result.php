@@ -47,8 +47,8 @@ echo "<div class='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
 
             $qrCode = new Endroid\QrCode\QrCode();
             $qrData = $qrCode
-            ->setText('http://www.marca.com')//url insert con id concatenado
-            ->setSize(300)
+            ->setText("http://172.24.49.236/Proyecto_6/clientes_entrada.proc.php?id=$cliente[id]")//url insert con id concatenado
+            ->setSize(150)
             ->setPadding(10)
             ->setErrorCorrection('high')
             ->setForegroundColor(['r' => 0, 'g' => 0, 'b' => 0, 'a' => 0])
@@ -57,7 +57,7 @@ echo "<div class='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
             ->getDataUri();
             // echo $qrCode->getText();
 
-            echo('<img src='.$qrData.'>');
+            echo('<div class=qr><img src='.$qrData.'><div>');
 ?>
          
                     
