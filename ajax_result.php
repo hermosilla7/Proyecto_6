@@ -1,23 +1,35 @@
-<html>
-<head>
+<script type="text/javascript">
+    function PrintElem(elem)
+    {
+        alert("printElemen");
+        Popup($(elem).html());
+    }
 
-<!-- JQUERY -->
-        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<!-- FONT AWESOME -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <!-- Crunchify's Scroll to Top Script -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-</head>
+    function Popup(data) 
+    {
+        var mywindow = window.open('', 'my div', 'height=400,width=600');
+        mywindow.document.write('<html><head><title>my div</title>');
+        /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(data);
+        mywindow.document.write('</body></html>');
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
+
+</script>
+
 <?php
-
 include 'conexion.proc.php';
 include_once 'qr/src/QrCode.php';
 include_once 'qr/Exceptions/QrCode.php';
 include_once 'qr/Exceptions/.php';
-include_once 'qr/Exceptions/.php';//incluir todos los de la carpeta exception
-include_once 'qr/Exceptions/.php';
-include_once 'qr/Exceptions/.php';
-
 
 $codigo=$_POST['vcod'];
 
@@ -30,7 +42,9 @@ if(mysqli_num_rows($result_usuarios)==0){
 	}else{
 
 	 $cliente=mysqli_fetch_array($result_usuarios);
-echo "<div class='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
+     ?>
+     <?php
+echo "<div id='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
                 echo utf8_encode($cliente['nombre']);
                 echo "<br/>";
                 echo "<b>Apellidos:</b> ";
@@ -43,7 +57,7 @@ echo "<div class='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
                      
                     $fichero="img/$cliente[img]";
                     $foto = $cliente['img']; 
-                    echo "<div id='img'><img src='$fichero' class='small' id='myImg'></div></div></br>";
+                    echo "<div id='img'><img src='$fichero' class='small' id='myImg'></div></br>";
 
             $qrCode = new Endroid\QrCode\QrCode();
             $qrData = $qrCode
@@ -55,19 +69,15 @@ echo "<div class='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
             ->setBackgroundColor(['r' => 255, 'g' => 255, 'b' => 255, 'a' => 0])
             ->setLabelFontSize(16)
             ->getDataUri();
-            // echo $qrCode->getText();
-
-            echo('<div class=qr><img src='.$qrData.'><div>');
-?>
-         
-                    
-        
+            echo('<div class=qr><img src='.$qrData.'></div></div>');
+?>   
                 <div class="btns">
                 <a href="clientes_modificar_admin.php?id=<?php echo $cliente['id']; ?>"><i class="fa fa-pencil-square-o fa-2x"></i></a>
                 <a href="clientes_entradas_admin.php?id=<?php echo $cliente['id']; ?>"><i class="fa fa-sign-in fa-2x"></i></a>
                 <a href="clientes_baja_admin.proc.php?id=<?php echo $cliente['id']; ?>"><i class="fa fa-user-times fa-2x"></i></a>
+                 <button onClick="PrintElem('#clients')">Print Div</button>  
                 </div>     
         <?php 
-                echo "<br/></div><br/>";
+                echo "<br/><br/>";
                 
             }

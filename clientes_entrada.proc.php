@@ -13,7 +13,6 @@
 			$fecha_actual = date("Y-m-d H:i:s");
 			$sql = "INSERT INTO entrada (cliente_id, fecha) VALUES ($cliente_id, '$fecha_actual')";
 			$sql=utf8_decode($sql);
-			echo $sql;
 			//lanzamos la sentencia sql
 			mysqli_query($con, $sql);
 			echo "ENTRA";
