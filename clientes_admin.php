@@ -1,6 +1,7 @@
 <?php
     include_once 'conexion.proc.php';
-    // $consulta_usuarios = "SELECT * FROM cliente where activo = 1";
+    include_once 'header.php';
+    $consulta_usuarios = "SELECT * FROM cliente where activo = 1";
     // $result_usuarios = mysqli_query($con, $consulta_usuarios);
 ?>
 <!-- FONT AWESOME -->
@@ -11,7 +12,6 @@
         </script>
 
 <link rel="stylesheet" type="text/css" href="css/search_bar.css">
-
 <script src="js/ajax.js"></script>
 <script src="js/functions.js"></script>
 <script type="text/javascript">
@@ -43,7 +43,7 @@
 
 <body>
 
-<h1><b>Buscador usuarios</b></h1>
+<br /><br /><!-- <h1><b>Buscador usuarios</b></h1> -->
 <br /><br />
 
 <input type="text" id="bus" onkeyup="myFunction()" size="30" required="required" autofocus="autofocus" placeholder="Buscar" />
@@ -54,7 +54,6 @@
 <br />
 
 <div id="pers"></div>
-<button type="button" class="sign-btn" onclick="window.location.href='index.php'">Volver</button>
 </body>
 
 </html>

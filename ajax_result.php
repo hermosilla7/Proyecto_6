@@ -7,7 +7,7 @@
 
     function Popup(data) 
     {
-        var mywindow = window.open('', 'my div', 'height=400,width=600');
+        var mywindow = window.open('', 'my div', 'height=50,width=50');
         mywindow.document.write('<html><head><title>my div</title>');
         /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
         mywindow.document.write('</head><body >');
@@ -43,8 +43,9 @@ if(mysqli_num_rows($result_usuarios)==0){
 
 	 $cliente=mysqli_fetch_array($result_usuarios);
      ?>
+     <tr>
      <?php
-echo "<div id='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
+                echo "<div id='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
                 echo utf8_encode($cliente['nombre']);
                 echo "<br/>";
                 echo "<b>Apellidos:</b> ";
@@ -53,16 +54,15 @@ echo "<div id='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
                 echo "<b>DNI:</b> ";
                 echo utf8_encode($cliente['dni']);
                 echo "<br/>";
-                Imagen:
-                     
+                Imagen:                     
                     $fichero="img/$cliente[img]";
                     $foto = $cliente['img']; 
                     echo "<div id='img'><img src='$fichero' class='small' id='myImg'></div></br>";
-
+                    
             $qrCode = new Endroid\QrCode\QrCode();
             $qrData = $qrCode
-            ->setText("http://172.24.49.236/Proyecto_6/clientes_entrada.proc.php?id=$cliente[id]")//url insert con id concatenado
-            ->setSize(150)
+            ->setText("http://192.168.1.130/Proyecto_6/clientes_entrada.proc.php?id=$cliente[id]")//url insert con id concatenado
+            ->setSize(100)
             ->setPadding(10)
             ->setErrorCorrection('high')
             ->setForegroundColor(['r' => 0, 'g' => 0, 'b' => 0, 'a' => 0])
@@ -70,12 +70,14 @@ echo "<div id='clients'><b style='margin-top: 15px;'>Nombre:</b> ";
             ->setLabelFontSize(16)
             ->getDataUri();
             echo('<div class=qr><img src='.$qrData.'></div></div>');
+            echo "<br/>";
+            echo "<br/>";
 ?>   
                 <div class="btns">
                 <a href="clientes_modificar_admin.php?id=<?php echo $cliente['id']; ?>"><i class="fa fa-pencil-square-o fa-2x"></i></a>
                 <a href="clientes_entradas_admin.php?id=<?php echo $cliente['id']; ?>"><i class="fa fa-sign-in fa-2x"></i></a>
                 <a href="clientes_baja_admin.proc.php?id=<?php echo $cliente['id']; ?>"><i class="fa fa-user-times fa-2x"></i></a>
-                 <button onClick="PrintElem('#clients')">Print Div</button>  
+                 <button onClick="PrintElem('#clients')">Imprimir carnet</button>  
                 </div>     
         <?php 
                 echo "<br/><br/>";

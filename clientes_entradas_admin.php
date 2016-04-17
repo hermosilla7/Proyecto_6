@@ -1,5 +1,6 @@
 <?php
 	include 'conexion.proc.php';
+    include_once 'header.php';
 	$cliente_id = $_REQUEST['id'];
 	$consulta_entradas = "SELECT * FROM entrada WHERE cliente_id = $cliente_id ORDER BY fecha DESC";
 	$result_entradas = mysqli_query($con, $consulta_entradas);
@@ -12,15 +13,14 @@ if(mysqli_num_rows($result_entradas)==0){
 	 echo '<b>No hay entradas</b>';
 
 	}else{
-
+echo "<br><br/><br><br/>";
 	while ($entrada=mysqli_fetch_array($result_entradas)) {
-        echo "<div class='clients'><b style='margin-top: 15px;'>Fecha:</b> ";
+        echo "<div class='clients'>";
                 echo utf8_encode($entrada['fecha']);
                 echo "<br/></div><br/>";
      } ;
  }
  ?>
- <button type="button" class="sign-btn" onclick="window.location.href='clientes_admin.php'">Volver</button>
             <a href="#" class="crunchify-top"><img src ="img/btt.png" style="float: right;" width="50px" height="50px"></a>
         </div>
     </div>
@@ -37,7 +37,7 @@ ${demo.css}
 $(function () {
     $('#container').highcharts({
         chart: {
-            type: 'column'
+            type: 'column',
         },
         title: {
             text: 'Entradas en 2016'
@@ -146,3 +146,6 @@ $(function () {
 <script src="js/modules/exporting.js"></script>
 
 <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+<?php
+include_once 'footer.php';
+?>
