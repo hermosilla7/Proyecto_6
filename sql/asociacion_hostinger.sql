@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-04-2016 a las 01:13:48
+-- Tiempo de generación: 18-04-2016 a las 10:41:23
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `telefono` int(9) NOT NULL,
   `img` varchar(20) NOT NULL,
   `activo` tinyint(4) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -45,8 +45,8 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 INSERT INTO `cliente` (`id`, `nombre`, `apellidos`, `dni`, `correo`, `direccion`, `telefono`, `img`, `activo`) VALUES
 (1, 'Raul', 'Perez', '46218852P', 'raul@fje.edu', 'Av. Bellvitge 30', 934741212, '1.jpg', 1),
 (2, 'Felipe', 'Iglesias', '44952145E', 'felipe@iglesias.com', 'C/ Cobre, 21', 933733369, '2.jpg', 1),
-(3, 'Roger', 'Calatayud', '47598830G', 'calle principal', 'C/ Metal, 172', 975422684, '3.jpg', 1),
-(4, 'Oscar', 'Ortiz', '41235506P', 'oscar@gmail.com', 'C/ St Joan 35', 795462444, '4.jpg', 1);
+(3, 'Roger', 'Calatayud', '47598830G', 'roger@gmail.com', 'C/ Metal, 172', 975422684, '3.jpg', 1),
+(4, 'Oscar', 'Ortiz', '41235506P', 'oscar@gmail.com', 'C/ St Joan 35', 795462444, '4.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -96,22 +96,21 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `id` int(3) NOT NULL,
   `nombre` varchar(30) COLLATE utf8_bin NOT NULL,
   `apellidos` varchar(50) COLLATE utf8_bin NOT NULL,
-  `img` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `correo` varchar(75) COLLATE utf8_bin NOT NULL,
   `pass` varchar(50) COLLATE utf8_bin NOT NULL,
   `activo` tinyint(1) NOT NULL,
   `telefono` int(9) NOT NULL,
   `dni` varchar(9) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `img`, `correo`, `pass`, `activo`, `telefono`, `dni`) VALUES
-(1, 'David ', 'Marin Salvador', '5.jpg', 'david.marin@fje.edu', '827ccb0eea8a706c4c34a16891f84e7b', 1, 933367898, '33789876A'),
-(2, 'Ignasi', 'Romero Sanjuan', '3.jpg', 'ignasi.romero@fje.edu', '827ccb0eea8a706c4c34a16891f84e7b', 1, 654678987, '33567987B'),
-(3, 'Armand', 'Gutierrez Arumi', '4.jpg', 'armand.gutierrez@fje.edu', '827ccb0eea8a706c4c34a16891f84e7b', 1, 634789867, '44567908B');
+INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `correo`, `pass`, `activo`, `telefono`, `dni`) VALUES
+(1, 'David ', 'Marin Salvador', 'david.marin@fje.edu', '827ccb0eea8a706c4c34a16891f84e7b', 1, 933367898, '33789876A'),
+(2, 'Ignasi', 'Romero Sanjuan', 'ignasi.romero@fje.edu', '827ccb0eea8a706c4c34a16891f84e7b', 1, 654678987, '33567987B'),
+(3, 'Armand', 'Gutierrez Arumi', 'armand.gutierrez@fje.edu', '827ccb0eea8a706c4c34a16891f84e7b', 1, 634789867, '44567908B');
 
 --
 -- Índices para tablas volcadas
@@ -148,7 +147,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `entrada`
 --
@@ -158,7 +157,7 @@ ALTER TABLE `entrada`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
