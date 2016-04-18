@@ -54,6 +54,14 @@ if(mysqli_num_rows($result_usuarios)==0){
                 echo "<b>DNI:</b> ";
                 echo utf8_encode($cliente['dni']);
                 echo "<br/>";
+                echo "<b>Activo:</b> ";
+                if ($cliente['activo'] == 1) {
+                    echo "Si";
+                }
+                else{
+                    echo "No";
+                }
+                echo "<br/>";
                 Imagen:                     
                     $fichero="img/$cliente[img]";
                     $foto = $cliente['img']; 
